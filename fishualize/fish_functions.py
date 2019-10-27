@@ -3,13 +3,16 @@ import numpy as np
 from matplotlib import cm
 from matplotlib.colors import ListedColormap, LinearSegmentedColormap
 import matplotlib.pyplot as plt
+import pkg_resources
+import os
 
 global df
 
 def get_data():
     '''Loads the fish color dataset.'''
     global df
-    df = pd.read_csv('data\\fishcolors.csv')
+    csv_file =  pkg_resources.resource_filename('fishualize', os.path.join('data','fishcolors.csv'))
+    df = pd.read_csv(csv_file)
 
 def fish_palettes():
     '''Returns all the fish options.
